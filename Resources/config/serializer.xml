@@ -83,6 +83,9 @@
             <argument /> <!-- xml serializer -->
             <argument type="service" id="hateoas.links_factory" />
             <argument type="service" id="hateoas.embeds_factory" />
+            <call method="setMetadataFactory">
+                <argument type="service" id="jms_serializer.metadata_factory" />
+            </call>
         </service>
 
         <service id="hateoas.event_subscriber.json" class="%hateoas.event_subscriber.json.class%">
@@ -92,6 +95,9 @@
             <argument type="service" id="hateoas.embeds_factory" />
             <argument type="service" id="hateoas.inline_deferrer.embeds" />
             <argument type="service" id="hateoas.inline_deferrer.links" />
+            <call method="setMetadataFactory">
+                <argument type="service" id="jms_serializer.metadata_factory" />
+            </call>
         </service>
 
         <service id="hateoas.inline_deferrer.embeds" class="%hateoas.inline_deferrer.embeds.class%" public="false">
